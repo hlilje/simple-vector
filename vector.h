@@ -25,7 +25,7 @@ class UIntVector
         UIntVector& operator=(UIntVector const& UIntVector);
 
 
-        void reset();
-
         std::size_t size();
+
+        void reset();
 };
