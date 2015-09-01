@@ -1,4 +1,5 @@
 #include <cstddef>
+#include <initializer_list>
 
 
 class UIntVector
@@ -12,19 +13,17 @@ class UIntVector
 
         UIntVector(std::size_t);
 
-        UIntVector(std::initializer_list);
-
-        UIntVector(UIntVector);
+        UIntVector(std::initializer_list<unsigned int>);
 
         ~UIntVector();
 
-        int& operator[](int x);
 
         unsigned int& operator[](int x);
 
         const unsigned int& operator[](int x) const;
 
-        UIntVector& operator=(A const& UIntVector);
+        UIntVector& operator=(UIntVector const& UIntVector);
+
 
         void reset();
 
