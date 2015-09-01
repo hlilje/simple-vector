@@ -1,7 +1,10 @@
+#include <cstddef>
+
+
 class UIntVector
 {
     private:
-        std::size_t size;
+        std::size_t _size;
     public:
         UIntVector();
 
