@@ -2,6 +2,8 @@
 #include <cstddef>
 #include <initializer_list>
 
+#define BASE_SIZE 10
+
 
 class UIntVector
 {

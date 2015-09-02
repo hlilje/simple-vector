@@ -4,9 +4,11 @@
 
 UIntVector::UIntVector(std::size_t size)
 {
+    _num_elements = size;
+    if (size < BASE_SIZE)
+        size = BASE_SIZE;
     _elements = new unsigned int[size];
     _size = size;
-    _num_elements = size;
 
     reset();
 }
@@ -22,15 +24,11 @@ UIntVector::UIntVector(const UIntVector& other)
         _elements[i] = other[i];
 }
 
-UIntVector::UIntVector(UIntVector&& other)
+UIntVector::UIntVector(UIntVector&& other) :
+    _elements(other._elements), _size(other._size),
+    _num_elements(other._num_elements)
 {
-    unsigned int size = other.size();
-    _elements = new unsigned int[size];
-    _size = size;
-    _num_elements = size;
-
-    for (unsigned int i = 0; i < _size; ++i)
-        _elements[i] = other[i];
+    other._elements = nullptr;
 }
 
 UIntVector::UIntVector(std::initializer_list<unsigned int> list)
@@ -69,11 +67,17 @@ const unsigned int& UIntVector::operator[](int x) const
 
 UIntVector& UIntVector::operator=(const UIntVector& other)
 {
+    UIntVector temp = UIntVector(other);
+    *this = std::move(temp);
     return *this;
 }
 
 UIntVector& UIntVector::operator=(UIntVector&& other)
 {
+    _elements = other._elements;
+    _size = other._size;
+    _num_elements = other._num_elements;
+    other._elements = nullptr;
     return *this;
 }
 
