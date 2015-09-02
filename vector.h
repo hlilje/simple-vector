@@ -27,7 +27,7 @@ class UIntVector
 
         const unsigned int& operator[](int x) const;
 
-        UIntVector& operator=(const UIntVector& UIntVector);
+        UIntVector& operator=(const UIntVector&);
 
         UIntVector& operator=(UIntVector&&);
 
