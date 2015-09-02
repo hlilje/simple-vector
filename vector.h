@@ -1,5 +1,8 @@
+#include <algorithm>
 #include <cstddef>
 #include <initializer_list>
+
+#define BASE_SIZE 100 // Minimum size of array when adding elements
 
 
 class UIntVector
@@ -7,6 +10,8 @@ class UIntVector
     private:
         unsigned int* _elements;
         std::size_t _size;
+
+        const void expand(const int);
     public:
         UIntVector(std::size_t);
 
@@ -24,7 +29,7 @@ class UIntVector
         UIntVector& operator=(UIntVector const& UIntVector);
 
 
-        std::size_t size();
+        const std::size_t size() const;
 
-        void reset();
+        const void reset();
 };
