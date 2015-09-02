@@ -68,6 +68,22 @@ class VectorTestSuite : public CxxTest::TestSuite {
             TS_ASSERT(a[4] == 0);
         }
 
+        void test_add()
+        {
+            UIntVector a(13);
+            a.add(5);
+            TS_ASSERT_EQUALS(a[13], (unsigned int) 5);
+            TS_ASSERT_EQUALS(a[10], (unsigned int) 0);
+
+            UIntVector b(a);
+            TS_ASSERT_EQUALS(b[13], (unsigned int) 5);
+            TS_ASSERT_EQUALS(b[9], (unsigned int) 0);
+
+            a.add(17);
+            TS_ASSERT_EQUALS(a[14], (unsigned int) 17);
+            TS_ASSERT_THROWS(b[14], std::out_of_range);
+        }
+
         /**
          * Test going out-of-bounds.
          */

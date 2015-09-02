@@ -22,6 +22,8 @@ $(TARGET): $(OBJECTS)
 clean:
 	-rm -f *.o
 	-rm -f $(TARGET)
+	-rm -f testrunner.cpp
+	-rm -f *.out
 
 test_init:
 	python2 $(LIBS)/cxxtestgen.py --error-printer \
