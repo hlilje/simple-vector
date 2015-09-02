@@ -11,7 +11,7 @@ UIntVector::UIntVector(std::size_t size)
     reset();
 }
 
-UIntVector::UIntVector(UIntVector const& other)
+UIntVector::UIntVector(const UIntVector& other)
 {
     unsigned int size = other.size();
     _elements = new unsigned int[size];
@@ -20,6 +20,10 @@ UIntVector::UIntVector(UIntVector const& other)
 
     for (unsigned int i = 0; i < _size; ++i)
         _elements[i] = other[i];
+}
+
+UIntVector::UIntVector(UIntVector&&)
+{
 }
 
 UIntVector::UIntVector(std::initializer_list<unsigned int> list)
@@ -56,9 +60,13 @@ const unsigned int& UIntVector::operator[](int x) const
     return _elements[x];
 }
 
-UIntVector& UIntVector::operator=(UIntVector const& UIntVector)
+UIntVector& UIntVector::operator=(const UIntVector& UIntVector)
 {
     return *this;
+}
+
+UIntVector& UIntVector::operator=(UIntVector&&)
+{
 }
 
 const void UIntVector::expand(const int size)
