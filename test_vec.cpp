@@ -113,6 +113,9 @@ class VectorTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS(a[2], (unsigned int) 4);
         }
 
+        /**
+         * Self copy test.
+         */
         void test_copy_self()
         {
             UIntVector a(4);
@@ -120,6 +123,27 @@ class VectorTestSuite : public CxxTest::TestSuite {
             a = a;
             TS_ASSERT(a[1] == 8);
             TS_ASSERT(a[0] == 0);
+        }
+
+        /**
+         * Test copy assignment where the array sizes differ.
+         */
+        void test_copy_assign_diffsize()
+        {
+            UIntVector a(5);
+            a[4] = 1;
+            UIntVector b(2);
+            b = a;
+            TS_ASSERT(b[4] == 1);
+
+            UIntVector c(12);
+            c[10] = 2;
+            UIntVector d(20);
+            d[19] = 3;
+            d[10] = 4;
+            c = d;
+            TS_ASSERT(c[19] == 3);
+            TS_ASSERT(c[10] == 4);
         }
 
         /**
