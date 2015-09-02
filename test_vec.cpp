@@ -68,6 +68,9 @@ class VectorTestSuite : public CxxTest::TestSuite {
             TS_ASSERT(a[4] == 0);
         }
 
+        /**
+         * Test the add functionality.
+         */
         void test_add()
         {
             UIntVector a(13);
@@ -107,6 +110,21 @@ class VectorTestSuite : public CxxTest::TestSuite {
             catch (std::out_of_range e) {
                 TS_ASSERT(true);
             }
+        }
+
+        /**
+         * Test to add over the internal capacity.
+         */
+        void test_add_lots()
+        {
+            UIntVector a(0); // Should default to internal size 10
+            for (int i = 0; i < 20; ++i)
+                a.add(i);
+
+            TS_ASSERT(a[9] == 9);
+            TS_ASSERT(a[10] == 10);
+            TS_ASSERT(a[15] == 15);
+            TS_ASSERT(a[19] == 19);
         }
 
         /**
