@@ -5,13 +5,12 @@
 class UIntVector
 {
     private:
+        unsigned int* _elements;
         std::size_t _size;
     public:
-        UIntVector();
+        UIntVector(std::size_t);
 
         UIntVector(UIntVector const&);
-
-        UIntVector(std::size_t);
 
         UIntVector(std::initializer_list<unsigned int>);
 

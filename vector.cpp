@@ -1,16 +1,12 @@
 #include "vector.h"
 
 
-UIntVector::UIntVector()
+UIntVector::UIntVector(std::size_t size)
 {
-
+    _elements = new unsigned int[size];
 }
 
 UIntVector::UIntVector(UIntVector const&)
-{
-}
-
-UIntVector::UIntVector(std::size_t)
 {
 }
 
@@ -20,6 +16,7 @@ UIntVector::UIntVector(std::initializer_list<unsigned int>)
 
 UIntVector::~UIntVector()
 {
+    delete [] _elements;
 }
 
 unsigned int& UIntVector::operator[](int x)
@@ -41,4 +38,6 @@ std::size_t UIntVector::size()
 
 void UIntVector::reset()
 {
+    for (unsigned int i = 0; i < _size; ++i)
+        _elements[i] = (unsigned int) {};
 }
