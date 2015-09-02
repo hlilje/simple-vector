@@ -1,6 +1,5 @@
-#include <iostream>
-#include <stdexcept>
 #include <cxxtest/TestSuite.h>
+#include <stdexcept>
 #include "vector.h"
 
 
