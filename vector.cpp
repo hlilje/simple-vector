@@ -39,7 +39,7 @@ UIntVector::UIntVector(std::initializer_list<unsigned int> list)
     _size = size;
     _num_elements = 0;
 
-    for (auto v : list) {
+    for (auto v : list)
         add(v);
 }
 
