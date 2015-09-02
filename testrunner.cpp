@@ -28,4 +28,16 @@ public:
  void runTest() { suite_VectorTestSuite.test_init(); }
 } testDescription_VectorTestSuite_test_init;
 
+static class TestDescription_VectorTestSuite_test_assign : public CxxTest::RealTestDescription {
+public:
+ TestDescription_VectorTestSuite_test_assign() : CxxTest::RealTestDescription( Tests_VectorTestSuite, suiteDescription_VectorTestSuite, 30, "test_assign" ) {}
+ void runTest() { suite_VectorTestSuite.test_assign(); }
+} testDescription_VectorTestSuite_test_assign;
+
+static class TestDescription_VectorTestSuite_test_old : public CxxTest::RealTestDescription {
+public:
+ TestDescription_VectorTestSuite_test_old() : CxxTest::RealTestDescription( Tests_VectorTestSuite, suiteDescription_VectorTestSuite, 51, "test_old" ) {}
+ void runTest() { suite_VectorTestSuite.test_old(); }
+} testDescription_VectorTestSuite_test_old;
+
 #include <cxxtest/Root.cpp>

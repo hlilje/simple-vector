@@ -22,6 +22,27 @@ class VectorTestSuite : public CxxTest::TestSuite {
             TS_ASSERT(d.size() == c.size());
             UIntVector e = c;
             TS_ASSERT(e.size() == c.size());
+
+            const UIntVector constA(10);
+            TS_ASSERT(constA.size() == 10);
+        }
+
+        void test_assign()
+        {
+            UIntVector a(10);
+            a[0] = 1;
+            a[9] = 2;
+            UIntVector b = a;
+            TS_ASSERT(b[0] == 1);
+            TS_ASSERT(b[9] == 2);
+
+            UIntVector c(5);
+            c[1] = 3;
+            c[2] = 4;
+            int x = c[1];
+            int y = c[2];
+            TS_ASSERT(x == 3);
+            TS_ASSERT(y == 4);
         }
 
         /**
