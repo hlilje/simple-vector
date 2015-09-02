@@ -9,7 +9,8 @@ class UIntVector
 {
     private:
         unsigned int* _elements;
-        std::size_t _size;
+        std::size_t _size; // Actual internal container size
+        std::size_t _num_elements;
 
         const void expand(const int);
     public:
@@ -32,4 +33,6 @@ class UIntVector
         const std::size_t size() const;
 
         const void reset();
+
+        const void add(const unsigned int x);
 };
