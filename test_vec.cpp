@@ -91,9 +91,18 @@ class VectorTestSuite : public CxxTest::TestSuite {
             UIntVector b(7);
             b = a;
             TS_ASSERT_EQUALS(b[2], (unsigned int) 3);
+            TS_ASSERT_EQUALS(a[2], (unsigned int) 3);
 
             a.add(19);
             TS_ASSERT_THROWS(b[5],std::out_of_range);
+
+            a[2] = (unsigned int) 4;
+            TS_ASSERT_EQUALS(b[2], (unsigned int) 3);
+            TS_ASSERT_EQUALS(a[2], (unsigned int) 4);
+
+            b[2] = (unsigned int) 5;
+            TS_ASSERT_EQUALS(b[2], (unsigned int) 5);
+            TS_ASSERT_EQUALS(a[2], (unsigned int) 4);
         }
 
         /**
