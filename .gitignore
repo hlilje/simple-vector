@@ -3,3 +3,4 @@
 *.out.dSYM
 vector
 main
+testrunner.cpp
