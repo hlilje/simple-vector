@@ -100,6 +100,7 @@ class VectorTestSuite : public CxxTest::TestSuite {
             b = a;
             TS_ASSERT_EQUALS(b[2], (unsigned int) 3);
             TS_ASSERT_EQUALS(a[2], (unsigned int) 3);
+            TS_ASSERT(b.size() == 5);
 
             a.add(19);
             TS_ASSERT_THROWS(b[5],std::out_of_range);
