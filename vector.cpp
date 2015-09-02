@@ -1,4 +1,5 @@
 #include "vector.h"
+#include <stdexcept>
 
 
 UIntVector::UIntVector(std::size_t size)
@@ -21,14 +22,25 @@ UIntVector::~UIntVector()
 
 unsigned int& UIntVector::operator[](int x)
 {
+    if (x < 0)
+        throw std::out_of_range("negative index");
+    else if ((unsigned int) x >= _size)
+        throw std::out_of_range("index larger than vector size");
+    return _elements[x];
 }
 
 const unsigned int& UIntVector::operator[](int x) const
 {
+    if (x < 0)
+        throw std::out_of_range("negative index");
+    else if ((unsigned int) x >= _size)
+        throw std::out_of_range("index larger than vector size");
+    return _elements[x];
 }
 
 UIntVector& UIntVector::operator=(UIntVector const& UIntVector)
 {
+    return *this;
 }
 
 std::size_t UIntVector::size()
