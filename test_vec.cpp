@@ -51,6 +51,11 @@ class VectorTestSuite : public CxxTest::TestSuite {
             int y = c[2];
             TS_ASSERT(x == 3);
             TS_ASSERT(y == 4);
+
+            UIntVector d(10);
+            d[5] = 10;
+            d[5]++;
+            TS_ASSERT(d[5] == 11);
         }
 
         /**
@@ -59,13 +64,11 @@ class VectorTestSuite : public CxxTest::TestSuite {
         void test_reset()
         {
             UIntVector a(5);
-            a[0] = 1; a[1] = 2; a[2] = 3; a[3] = 4; a[4] = 5;
+            for (unsigned int i = 0; i < a.size(); ++i)
+                a[i] = i;
             a.reset();
-            TS_ASSERT(a[0] == 0);
-            TS_ASSERT(a[1] == 0);
-            TS_ASSERT(a[2] == 0);
-            TS_ASSERT(a[3] == 0);
-            TS_ASSERT(a[4] == 0);
+            for (unsigned int i = 0; i < a.size(); ++i)
+                TS_ASSERT(a[i] == 0);
         }
 
         /**
@@ -87,6 +90,9 @@ class VectorTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_THROWS(b[14], std::out_of_range);
         }
 
+        /**
+         * Test copy.
+         */
         void test_copy_op()
         {
             UIntVector a(5);
@@ -146,39 +152,5 @@ class VectorTestSuite : public CxxTest::TestSuite {
             TS_ASSERT(a[10] == 10);
             TS_ASSERT(a[15] == 15);
             TS_ASSERT(a[19] == 19);
-        }
-
-        /**
-         * From test_vec.cpp
-         */
-        void test_old()
-        {
-            // Några saker som ska fungera:
-            UIntVector a(7);           // initiering med 7 element
-            UIntVector b(a);           // kopieringskonstruktor 
-            UIntVector c = a;          // kopieringskonstruktor 
-
-            a = b;                 // tilldelning genom kopiering
-            a[5] = 7;              // tilldelning till element
-
-            const UIntVector e(10);    // konstant objekt med 10 element
-            int i = e[5];          // const int oper[](int) const körs
-            i = a[0];              // vektorn är nollindexerad
-            i = a[5];              // int oper[](int) körs
-
-            a[5]++;                // öka värdet till 8
-
-            try {
-                i = e[10];             // försöker hämta element som ligger utanför e
-            } catch (std::out_of_range e) {
-                std::cout << e.what() << std::endl;
-            }
-
-#if 0
-            // Diverse saker att testa
-            e[5] = 3;              // fel: (kompilerar ej) tilldelning till const
-            b = b;                 // hmm: se till att inte minnet som skall behållas frigörs
-#endif
-
         }
 };
