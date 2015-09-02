@@ -114,6 +114,15 @@ class VectorTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS(a[2], (unsigned int) 4);
         }
 
+        void test_copy_self()
+        {
+            UIntVector a(4);
+            a[1] = 8;
+            a = a;
+            TS_ASSERT(a[1] == 8);
+            TS_ASSERT(a[0] == 0);
+        }
+
         /**
          * Test going out-of-bounds.
          */
