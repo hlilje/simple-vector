@@ -5,6 +5,7 @@
 UIntVector::UIntVector(std::size_t size)
 {
     _elements = new unsigned int[size];
+    reset();
 }
 
 UIntVector::UIntVector(UIntVector const& other)
@@ -67,5 +68,5 @@ const std::size_t UIntVector::size() const
 const void UIntVector::reset()
 {
     for (unsigned int i = 0; i < _size; ++i)
-        _elements[i] = (unsigned int) {};
+        _elements[i] = (unsigned int) {0};
 }
