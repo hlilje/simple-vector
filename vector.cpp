@@ -1,5 +1,6 @@
 #include "vector.h"
 #include <stdexcept>
+#include <iostream>
 
 
 UIntVector::UIntVector(std::size_t size)
@@ -36,9 +37,9 @@ UIntVector::UIntVector(std::initializer_list<unsigned int> list)
     unsigned int size = list.size();
     _elements = new unsigned int[size];
     _size = size;
-    _num_elements = size;
+    _num_elements = 0;
 
-    for (auto v : list)
+    for (auto v : list) {
         add(v);
 }
 

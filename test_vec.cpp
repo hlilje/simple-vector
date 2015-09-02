@@ -126,6 +126,14 @@ class VectorTestSuite : public CxxTest::TestSuite {
             TS_ASSERT(a[0] == 0);
         }
 
+        void test_initializer_list() {
+            UIntVector a({4,5,6});
+            TS_ASSERT(a.size() == 3);
+            TS_ASSERT(a[0] == 4);
+            TS_ASSERT(a[1] == 5);
+            TS_ASSERT(a[2] == 6);
+        }
+
         /**
          * Test copy assignment where the array sizes differ.
          */
