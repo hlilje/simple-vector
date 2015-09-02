@@ -23,6 +23,11 @@ class VectorTestSuite : public CxxTest::TestSuite {
             UIntVector e = c;
             TS_ASSERT(e.size() == c.size());
 
+            UIntVector f(3);
+            TS_ASSERT(f[0] == 0);
+            TS_ASSERT(f[1] == 0);
+            TS_ASSERT(f[2] == 0);
+
             const UIntVector constA(10);
             TS_ASSERT(constA.size() == 10);
         }
@@ -61,6 +66,31 @@ class VectorTestSuite : public CxxTest::TestSuite {
             TS_ASSERT(a[2] == 0);
             TS_ASSERT(a[3] == 0);
             TS_ASSERT(a[4] == 0);
+        }
+
+        /**
+         * Test going out-of-bounds.
+         */
+        void test_index_except()
+        {
+            UIntVector a(5);
+            const UIntVector b(1);
+            try
+            {
+                a[5] = 1;
+                TS_ASSERT(false);
+            }
+            catch (std::out_of_range e) {
+                TS_ASSERT(true);
+            }
+            try
+            {
+                b[2];
+                TS_ASSERT(false);
+            }
+            catch (std::out_of_range e) {
+                TS_ASSERT(true);
+            }
         }
 
         /**

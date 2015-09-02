@@ -30,19 +30,25 @@ public:
 
 static class TestDescription_VectorTestSuite_test_assign : public CxxTest::RealTestDescription {
 public:
- TestDescription_VectorTestSuite_test_assign() : CxxTest::RealTestDescription( Tests_VectorTestSuite, suiteDescription_VectorTestSuite, 33, "test_assign" ) {}
+ TestDescription_VectorTestSuite_test_assign() : CxxTest::RealTestDescription( Tests_VectorTestSuite, suiteDescription_VectorTestSuite, 38, "test_assign" ) {}
  void runTest() { suite_VectorTestSuite.test_assign(); }
 } testDescription_VectorTestSuite_test_assign;
 
 static class TestDescription_VectorTestSuite_test_reset : public CxxTest::RealTestDescription {
 public:
- TestDescription_VectorTestSuite_test_reset() : CxxTest::RealTestDescription( Tests_VectorTestSuite, suiteDescription_VectorTestSuite, 54, "test_reset" ) {}
+ TestDescription_VectorTestSuite_test_reset() : CxxTest::RealTestDescription( Tests_VectorTestSuite, suiteDescription_VectorTestSuite, 59, "test_reset" ) {}
  void runTest() { suite_VectorTestSuite.test_reset(); }
 } testDescription_VectorTestSuite_test_reset;
 
+static class TestDescription_VectorTestSuite_test_index_except : public CxxTest::RealTestDescription {
+public:
+ TestDescription_VectorTestSuite_test_index_except() : CxxTest::RealTestDescription( Tests_VectorTestSuite, suiteDescription_VectorTestSuite, 74, "test_index_except" ) {}
+ void runTest() { suite_VectorTestSuite.test_index_except(); }
+} testDescription_VectorTestSuite_test_index_except;
+
 static class TestDescription_VectorTestSuite_test_old : public CxxTest::RealTestDescription {
 public:
- TestDescription_VectorTestSuite_test_old() : CxxTest::RealTestDescription( Tests_VectorTestSuite, suiteDescription_VectorTestSuite, 69, "test_old" ) {}
+ TestDescription_VectorTestSuite_test_old() : CxxTest::RealTestDescription( Tests_VectorTestSuite, suiteDescription_VectorTestSuite, 99, "test_old" ) {}
  void runTest() { suite_VectorTestSuite.test_old(); }
 } testDescription_VectorTestSuite_test_old;
 
