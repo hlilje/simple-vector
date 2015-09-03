@@ -87,6 +87,14 @@ class VectorTestSuite : public CxxTest::TestSuite {
             a.add(17);
             TS_ASSERT_EQUALS(a[14], (unsigned int) 17);
             TS_ASSERT_THROWS(b[14], std::out_of_range);
+
+            UIntVector c(0);
+            c.add(1);
+            c.add(2);
+            c.add(3);
+            TS_ASSERT_EQUALS(c[1], (unsigned int) 2);
+            c[0] = 5;
+            TS_ASSERT_EQUALS(c[0], (unsigned int) 5);
         }
 
         /**
@@ -162,22 +170,8 @@ class VectorTestSuite : public CxxTest::TestSuite {
         {
             UIntVector a(5);
             const UIntVector b(1);
-            try
-            {
-                a[5] = 1;
-                TS_ASSERT(false);
-            }
-            catch (std::out_of_range e) {
-                TS_ASSERT(true);
-            }
-            try
-            {
-                b[2];
-                TS_ASSERT(false);
-            }
-            catch (std::out_of_range e) {
-                TS_ASSERT(true);
-            }
+            TS_ASSERT_THROWS(a[5] = 1, std::out_of_range);
+            TS_ASSERT_THROWS(b[2], std::out_of_range);
         }
 
         /**
