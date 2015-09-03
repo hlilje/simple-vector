@@ -68,7 +68,10 @@ const unsigned int& UIntVector::operator[](int x) const
 
 UIntVector& UIntVector::operator=(const UIntVector& other)
 {
+    if (this == &other)
+        return *this;
     UIntVector temp = UIntVector(other);
+    delete [] _elements;
     *this = std::move(temp);
     return *this;
 }
