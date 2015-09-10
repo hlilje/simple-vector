@@ -68,11 +68,17 @@ const unsigned int& UIntVector::operator[](const std::size_t x) const
 
 UIntVector& UIntVector::operator=(const UIntVector& other)
 {
+    std::cout<<"asdf";
     if (this == &other)
         return *this;
     UIntVector temp = UIntVector(other);
     delete [] _elements;
     *this = std::move(temp);
+    return *this;
+}
+
+UIntVector& UIntVector::operator=(const std::size_t& other)
+{
     return *this;
 }
 

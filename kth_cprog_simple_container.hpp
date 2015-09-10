@@ -31,6 +31,8 @@ class UIntVector
 
         UIntVector& operator=(const UIntVector&);
 
+        UIntVector& operator=(const std::size_t&);
+
         UIntVector& operator=(UIntVector&&);
 
 

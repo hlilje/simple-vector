@@ -184,6 +184,14 @@ class VectorTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS(a.size(), (std::size_t) 17);
         }
 
+        void test_stuff()
+        {
+            std::size_t n = 24;
+            UIntVector a(1);
+            a = n;
+            TS_ASSERT(a.size() != n);
+        }
+
         /**
          * Test to add over the internal capacity.
          */
