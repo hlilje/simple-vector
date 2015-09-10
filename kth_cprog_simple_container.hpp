@@ -25,9 +25,9 @@ class UIntVector
         ~UIntVector();
 
 
-        unsigned int& operator[](int x);
+        unsigned int& operator[](std::size_t x);
 
-        const unsigned int& operator[](int x) const;
+        const unsigned int& operator[](std::size_t x) const;
 
         UIntVector& operator=(const UIntVector&);
 

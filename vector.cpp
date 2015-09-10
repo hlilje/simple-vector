@@ -48,7 +48,7 @@ UIntVector::~UIntVector()
     delete [] _elements;
 }
 
-unsigned int& UIntVector::operator[](int x)
+unsigned int& UIntVector::operator[](std::size_t x)
 {
     if (x < 0)
         throw std::out_of_range("negative index");
@@ -57,7 +57,7 @@ unsigned int& UIntVector::operator[](int x)
     return _elements[x];
 }
 
-const unsigned int& UIntVector::operator[](int x) const
+const unsigned int& UIntVector::operator[](std::size_t x) const
 {
     if (x < 0)
         throw std::out_of_range("negative index");
