@@ -21,7 +21,7 @@ UIntVector::UIntVector(const UIntVector& other)
     _size = size;
     _num_elements = size;
 
-    for (unsigned int i = 0; i < _size; ++i)
+    for (std::size_t i = 0; i < _size; ++i)
         _elements[i] = other[i];
 }
 
@@ -104,7 +104,7 @@ const std::size_t UIntVector::size() const
 
 const void UIntVector::reset()
 {
-    for (unsigned int i = 0; i < _size; ++i)
+    for (std::size_t i = 0; i < _size; ++i)
         _elements[i] = (unsigned int) {0};
 }
 
