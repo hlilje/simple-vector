@@ -175,6 +175,16 @@ class VectorTestSuite : public CxxTest::TestSuite {
         }
 
         /**
+         * Test constructing vector with const size_t
+         */
+        void test_const_size()
+        {
+            const size_t s = 17;
+            UIntVector a(s);
+            TS_ASSERT_EQUALS(a.size(), 17);
+        }
+
+        /**
          * Test to add over the internal capacity.
          */
         void test_add_lots()

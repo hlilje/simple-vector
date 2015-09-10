@@ -3,13 +3,13 @@
 #include <iostream>
 
 
-UIntVector::UIntVector(std::size_t size)
+UIntVector::UIntVector(const std::size_t size)
 {
-    _num_elements = size;
-    if (size < BASE_SIZE)
-        size = BASE_SIZE;
-    _elements = new unsigned int[size];
+    _num_elements = size;    
     _size = size;
+    if (size < BASE_SIZE)
+        _size = BASE_SIZE;
+    _elements = new unsigned int[_size];
 
     reset();
 }
@@ -48,7 +48,7 @@ UIntVector::~UIntVector()
     delete [] _elements;
 }
 
-unsigned int& UIntVector::operator[](std::size_t x)
+unsigned int& UIntVector::operator[](const std::size_t x)
 {
     if (x < 0)
         throw std::out_of_range("negative index");
@@ -57,7 +57,7 @@ unsigned int& UIntVector::operator[](std::size_t x)
     return _elements[x];
 }
 
-const unsigned int& UIntVector::operator[](std::size_t x) const
+const unsigned int& UIntVector::operator[](const std::size_t x) const
 {
     if (x < 0)
         throw std::out_of_range("negative index");
