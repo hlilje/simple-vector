@@ -79,6 +79,8 @@ UIntVector& UIntVector::operator=(const UIntVector& other)
 
 UIntVector& UIntVector::operator=(UIntVector&& other)
 {
+    if (this == &other)
+        return *this;
     delete [] _elements;
     _elements = other._elements;
     _size = other._size;
