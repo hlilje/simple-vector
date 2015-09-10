@@ -16,7 +16,7 @@ UIntVector::UIntVector(const std::size_t size)
 
 UIntVector::UIntVector(const UIntVector& other)
 {
-    unsigned int size = other.size();
+    std::size_t size = other.size();
     _elements = new unsigned int[size];
     _size = size;
     _num_elements = size;
@@ -34,7 +34,7 @@ UIntVector::UIntVector(UIntVector&& other) :
 
 UIntVector::UIntVector(std::initializer_list<unsigned int> list)
 {
-    unsigned int size = list.size();
+    std::size_t size = list.size();
     _elements = new unsigned int[size];
     _size = size;
     _num_elements = 0;
@@ -52,7 +52,7 @@ unsigned int& UIntVector::operator[](const std::size_t x)
 {
     if (x < 0)
         throw std::out_of_range("negative index");
-    else if ((unsigned int) x >= _num_elements)
+    else if (x >= _num_elements)
         throw std::out_of_range("index larger than vector size");
     return _elements[x];
 }
@@ -61,7 +61,7 @@ const unsigned int& UIntVector::operator[](const std::size_t x) const
 {
     if (x < 0)
         throw std::out_of_range("negative index");
-    else if ((unsigned int) x >= _num_elements)
+    else if (x >= _num_elements)
         throw std::out_of_range("index larger than vector size");
     return _elements[x];
 }
