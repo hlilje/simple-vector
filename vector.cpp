@@ -30,6 +30,8 @@ UIntVector::UIntVector(UIntVector&& other) :
     _num_elements(other._num_elements)
 {
     other._elements = nullptr;
+    other._size = 0;
+    other._num_elements = 0;
 }
 
 UIntVector::UIntVector(std::initializer_list<unsigned int> list)
@@ -82,6 +84,8 @@ UIntVector& UIntVector::operator=(UIntVector&& other)
     _size = other._size;
     _num_elements = other._num_elements;
     other._elements = nullptr;
+    other._size = 0;
+    other._num_elements = 0;
     return *this;
 }
 
