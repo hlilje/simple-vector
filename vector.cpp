@@ -77,11 +77,6 @@ UIntVector& UIntVector::operator=(const UIntVector& other)
     return *this;
 }
 
-UIntVector& UIntVector::operator=(const std::size_t& other)
-{
-    return *this;
-}
-
 UIntVector& UIntVector::operator=(UIntVector&& other)
 {
     _elements = other._elements;

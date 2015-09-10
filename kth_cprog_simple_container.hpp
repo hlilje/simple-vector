@@ -14,7 +14,7 @@ class UIntVector
 
         const void expand(const int);
     public:
-        UIntVector(const std::size_t);
+        explicit UIntVector(const std::size_t);
 
         UIntVector(const UIntVector&);
 
@@ -30,8 +30,6 @@ class UIntVector
         const unsigned int& operator[](const std::size_t x) const;
 
         UIntVector& operator=(const UIntVector&);
-
-        UIntVector& operator=(const std::size_t&);
 
         UIntVector& operator=(UIntVector&&);
 
