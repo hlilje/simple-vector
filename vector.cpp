@@ -73,13 +73,13 @@ UIntVector& UIntVector::operator=(const UIntVector& other)
     if (this == &other)
         return *this;
     UIntVector temp = UIntVector(other);
-    delete [] _elements;
     *this = std::move(temp);
     return *this;
 }
 
 UIntVector& UIntVector::operator=(UIntVector&& other)
 {
+    delete [] _elements;
     _elements = other._elements;
     _size = other._size;
     _num_elements = other._num_elements;

@@ -196,6 +196,28 @@ class VectorTestSuite : public CxxTest::TestSuite {
 //        }
 
         /**
+         *
+         */
+        void test_mem_leak()
+        {
+            UIntVector v(20);
+            for(unsigned int i = 0; i < 100000; ++i)
+                v.add(i);
+            TS_ASSERT_EQUALS(v.size(), (std::size_t) 100020);
+            UIntVector u = std::move(v);
+            v = u;
+            UIntVector * w = new UIntVector(7);
+            delete w;
+
+            UIntVector a(123232);
+            a = v;
+
+            UIntVector b(2);
+            a.reset();
+            b = std::move(a);
+        }
+
+        /**
          * Test to add over the internal capacity.
          */
         void test_add_lots()
