@@ -1,6 +1,6 @@
 #include <cxxtest/TestSuite.h>
 #include <stdexcept>
-#include "vector.h"
+#include "kth_cprog_simple_container.hpp"
 
 
 class VectorTestSuite : public CxxTest::TestSuite {

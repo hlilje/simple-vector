@@ -4,3 +4,4 @@
 vector
 main
 testrunner.cpp
+*.DS_Store
