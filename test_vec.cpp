@@ -181,7 +181,7 @@ class VectorTestSuite : public CxxTest::TestSuite {
         {
             const size_t s = 17;
             UIntVector a(s);
-            TS_ASSERT_EQUALS(a.size(), 17);
+            TS_ASSERT_EQUALS(a.size(), (std::size_t) 17);
         }
 
         /**
